@@ -2,14 +2,21 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { editActive } from "../../features/transaction/transactionSlice";
+import {
+  editActive,
+  removeTransaction,
+} from "../../features/transaction/transactionSlice";
 
 const Transaction = ({ transaction }) => {
-  const { name, type, amount } = transaction || {};
+  const { id, name, type, amount } = transaction || {};
   const dispatch = useDispatch();
 
   const handleEdit = () => {
     dispatch(editActive(transaction));
+  };
+
+  const handleDelete = () => {
+    dispatch(removeTransaction(id));
   };
 
   return (
@@ -20,7 +27,7 @@ const Transaction = ({ transaction }) => {
         <button onClick={handleEdit} className="link">
           <FontAwesomeIcon icon={faPenToSquare} />
         </button>
-        <button className="link">
+        <button onClick={handleDelete} className="link">
           <FontAwesomeIcon icon={faTrash} />
         </button>
       </div>
