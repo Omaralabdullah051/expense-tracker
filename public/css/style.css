@@ -163,7 +163,6 @@ label {
 }
 
 .cancel_edit {
-    display: none;
     margin-top: 10px;
     background-color: #e6425e !important;
 }
@@ -173,7 +172,7 @@ label {
 }
 
 .second_heading {
-    margin: 20px 0;
+    margin: 20px 6px;
     text-align: left;
 }
 

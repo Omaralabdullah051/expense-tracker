@@ -1,16 +1,23 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { editActive } from "../../features/transaction/transactionSlice";
 
 const Transaction = ({ transaction }) => {
   const { name, type, amount } = transaction || {};
+  const dispatch = useDispatch();
+
+  const handleEdit = () => {
+    dispatch(editActive(transaction));
+  };
 
   return (
     <li className={`transaction ${type}`}>
       <p>{name}</p>
       <div className="right">
         <p>{amount}</p>
-        <button className="link">
+        <button onClick={handleEdit} className="link">
           <FontAwesomeIcon icon={faPenToSquare} />
         </button>
         <button className="link">
