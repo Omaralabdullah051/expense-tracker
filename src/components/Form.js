@@ -59,8 +59,8 @@ const Form = () => {
               name="type"
               placeholder="Expense"
               required
-              checked={type === "Expense"}
-              onChange={() => setType("Expense")}
+              checked={type === "expense"}
+              onChange={() => setType("expense")}
             />
             <label>Expense</label>
           </div>

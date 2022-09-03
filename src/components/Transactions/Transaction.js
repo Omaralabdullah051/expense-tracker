@@ -2,12 +2,14 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
-const Transaction = () => {
+const Transaction = ({ transaction }) => {
+  const { name, type, amount } = transaction || {};
+
   return (
-    <li className="transaction income">
-      <p>Earned this month</p>
+    <li className={`transaction ${type}`}>
+      <p>{name}</p>
       <div className="right">
-        <p>৳ 100</p>
+        <p>{amount}</p>
         <button className="link">
           <FontAwesomeIcon icon={faPenToSquare} />
         </button>
